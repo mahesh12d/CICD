@@ -1,7 +1,11 @@
 name: wrkl
 on:
-  branch:
-    - test
+  push:
+    branches:
+      - test
+  pull_request:
+    branches:
+      - test
   workflow_dispatch:
     inputs:
       logLevel:
@@ -10,3 +14,11 @@ on:
         default: 'warning'
       tags:
         description: 'Test scenario tags'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run a one-line script
+        run: echo Hello, world!
