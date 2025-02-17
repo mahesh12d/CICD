@@ -1,11 +1,20 @@
-name: A workflow for my Hello World file
+name: Hi Mascot
 on: push
+env:
+  mascot: Mona
+  super_duper_var: totally_awesome
+
 jobs:
-  build:
-    name: Hello world action
-    runs-on: ubuntu-latest
+  windows_job:
+    runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v1
-    - uses: ./action-a
-      with:
-        MY_NAME: "Mona"
+      - run: echo 'Hi ${{ env.mascot }}'  # Hi Mona
+      - run: echo 'Hi ${{ env.mascot }}'  # Hi Octocat
+        env:
+          mascot: Octocat
+  linux_job:
+    runs-on: ubuntu-latest
+    env:
+      mascot: Tux
+    steps:
+      - run: echo 'Hi ${{ env.mascot }}'  # Hi Tux
