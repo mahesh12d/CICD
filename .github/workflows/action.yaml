@@ -15,7 +15,7 @@ jobs:
       - run: echo "👋 Hello World!"
 
       - name: Checkout Code
-        run: actions/checkout@v4.2.2
+        uses: actions/checkout@v4.2.2
 
       - name: list files in repo
         run: |
