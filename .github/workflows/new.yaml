@@ -1,5 +1,7 @@
 name: wrkl
 on:
+  branch:
+    - test
   workflow_dispatch:
     inputs:
       logLevel:
