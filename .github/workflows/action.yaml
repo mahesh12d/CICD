@@ -11,3 +11,11 @@ jobs:
 
     steps: 
       - run: eco "👋 Hello World!"
+
+      - name: Checkout Code
+        run: actions/checkout@v3.0
+
+      - name: list files in repo
+        run: |
+          echo "The repor ${{github.repository}}" contains following files:"
+          tree
