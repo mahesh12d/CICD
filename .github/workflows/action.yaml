@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 name: Hi Mascot
 on:
   push:
@@ -7,14 +6,6 @@ on:
 env:
   mascot: Mona
   super_duper_var: totally_awesome
-=======
-name: My first
-on: 
-  push: 
-    branches: 
-    - master
-  workflow_dispatch:
->>>>>>> 1a573b274c8b10ed964e67f6b142e0aa8f4e7819
 
 jobs: 
   MyfirstJob:
