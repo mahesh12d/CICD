@@ -2,7 +2,7 @@ name: Hi Mascot
 on:
   push:
     branches:
-      - test
+      - master
 env:
   mascot: Mona
   super_duper_var: totally_awesome
