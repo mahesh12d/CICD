@@ -2,10 +2,10 @@ name: wrkl
 on:
   push:
     branches:
-      - test
+      - final
   pull_request:
     branches:
-      - test
+      - final
   workflow_dispatch:
     inputs:
       commited_sha:
