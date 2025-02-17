@@ -1,25 +1,20 @@
-name: Hi Mascot
+name: My first Flow
 on:
   push:
     branches:
       - master
-env:
-  mascot: Mona
-  super_duper_var: totally_awesome
-
-jobs: 
-  MyfirstJob:
+  workflow_dispatch:
+  
+jobs:
+  MyFirstJob:
     runs-on: ubuntu-latest
+    steps:
+    - run: echo "👋 Hello World!"
 
-    steps: 
-      - run: echo "👋 Hello World!"
+    - name: Checkout Repo
+      uses: actions/checkout@v4.4.2
 
-      - name: Checkout Code
-        uses: actions/checkout@v4.2.2
-
-      - name: list files in repo
-        run: |
-          echo "The repor ${{github.repository}}" contains following files:"
-          tree
-
-# this is my action plan
+    - name: List files in the repo
+      run: |
+         echo "folloing are ${{github.repository}} file tree:"
+         tree
