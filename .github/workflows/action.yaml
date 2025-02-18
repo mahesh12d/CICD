@@ -35,22 +35,14 @@ jobs:
           echo "Payload: ${{ toJSON(github.event.client_payload) }}"
         name: Payload
         if: ${{ github.event_name == 'repository_dispatch' }}
-  job_1:
-    runs-on: ubuntu-latest
+  my_built:
+    runs-on: ${{matrix.os}}
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x]
+        os: [ubuntu-latest, windows-latest]
     steps:
-      - run: "echo Job: ${{ github.job }}"
-  job_2:
-    runs-on: ubuntu-latest
-    needs: job_1
-    steps:
-      - run: "echo Job: ${{ github.job }}"
-  job_3:
-    runs-on: ubuntu-latest
-    needs: job_1
-    steps:
-      - run: "echo Job: ${{ github.job }}"
-  job_4:
-    runs-on: ubuntu-latest
-    needs: [job_2,job_3]
-    steps:
-      - run: "echo Job: ${{ github.job }}"
+    - uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        
