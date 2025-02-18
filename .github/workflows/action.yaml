@@ -36,13 +36,15 @@ jobs:
         name: Payload
         if: ${{ github.event_name == 'repository_dispatch' }}
   my_built:
-    runs-on: ${{matrix.os}}
+    runs-on: ${{matrix.os_version}}
     strategy:
+      fail-fast: false
+      max-parallel: 3
       matrix:
-        node-version: [12.x, 14.x]
-        os: [ubuntu-latest, windows-latest]
+        os_version: [macos-latest, ubuntu-latest]
+        node_version: [12, 14, 16]
     steps:
     - uses: actions/setup-node@v3
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: ${{matrix.os_version }}
         
