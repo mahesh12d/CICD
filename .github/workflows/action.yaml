@@ -1,20 +1,29 @@
-name: My first Flow
+name: My first workflow
 on:
-  push:
-    branches:
-      - master
   workflow_dispatch:
-  
-jobs:
-  MyFirstJob:
-    runs-on: ubuntu-latest
-    steps:
-    - run: echo "👋 Hello World!"
-
-    - name: Checkout Repo
-      uses: actions/checkout@v2
-
-    - name: List files in the repo
-      run: |
-         echo "folloing are ${{github.repository}} file tree:"
-         tree
+    inputs:
+      homedrive:
+        description: 'Drive Letter'
+        required: true
+        type: string
+      loglevel:
+        description: 'Log Level'
+        default: 'warning'
+        type: choose
+        options:
+          error:
+            description: 'Error'
+          warning:
+            description: 'Warning'
+          info:
+            description: 'Info'
+          debug:
+            description: 'Debug'
+      tag: 
+        description: 'apply tag after successful run'
+        required: true
+        type: boolean
+        environment:
+          description: 'Environment'
+          required: true
+          type: environment
