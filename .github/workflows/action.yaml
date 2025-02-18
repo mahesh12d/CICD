@@ -38,7 +38,7 @@ jobs:
   my_built:
     runs-on: ${{matrix.os_version}}
     strategy:
-      fail-fast: false
+      fail-fast: true
       max-parallel: 3
       matrix:
         os_version: [macos-latest, ubuntu-latest]
