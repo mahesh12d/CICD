@@ -16,18 +16,16 @@ on:
           - info
           - debug
       tag:
-        description: 'Apply tag after successfull test run'
+        description: 'Apply tag after successful test run'
         required: true
         type: boolean
-      environment :
+      environment:
         description: 'Environment to run tests against'
-        type: environment
         required: true
+        type: string
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-
-# cclo
