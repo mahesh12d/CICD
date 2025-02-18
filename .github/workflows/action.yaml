@@ -34,8 +34,9 @@ jobs:
       - run: |
           echo "Payload: ${{ toJSON(github.event.client_payload) }}"
         name: Payload
-        if: ${{ github.event_name == 'repository_dispatch' }}
+        if: ${{ github.event.action == 'event2' }}
   my_built:
+    if: ${{ github.event.action == 'event2' }}
     runs-on: ${{matrix.os_version}}
     strategy:
       fail-fast: false
