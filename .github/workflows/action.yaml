@@ -9,7 +9,7 @@ on:
       loglevel:
         description: 'Log Level'
         default: 'warning'
-        type: choose
+        type: choice
         options:
           error:
             description: 'Error'
