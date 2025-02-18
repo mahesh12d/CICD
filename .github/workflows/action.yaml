@@ -22,7 +22,7 @@ on:
       environment:
         description: 'Environment to run tests against'
         required: true
-        type: string
+        type: environment
 jobs:
   build:
     runs-on: ubuntu-latest
